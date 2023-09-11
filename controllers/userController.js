@@ -22,7 +22,6 @@ export const updateUser = async (req, res) => {
     let fileUrl = req.file.path.replace(/\\/g, '/').substring('public'.length);
     newUser.avatar = fileUrl;
   }
-  console.log(req.file);
 
   const updatedUser = await User.findByIdAndUpdate(req.user.userId, newUser);
   res.status(StatusCodes.OK).json({ msg: 'update user' });
